@@ -1,0 +1,38 @@
+<div class="grid h-screen place-items-center" style="background: rgb(249, 191, 167); background: linear-gradient(45deg,  rgb(211, 105, 149)  0%, rgb(245, 164, 101) 100%);">
+    <form *ngIf="formGroup" [formGroup]="formGroup">
+        <div class="flex gap-3">
+            <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input type="text" formControlName="firstName" matInput placeholder="Abdeslam">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input type="text" formControlName="lastName" matInput placeholder="Loukili">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="w-full" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" formControlName="email" matInput placeholder="abdeslam@loukili.org">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="w-full" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" formControlName="password" matInput placeholder="********">
+        </mat-form-field>
+        <div>
+            <mat-label>Pick your role: </mat-label>
+            <br>
+            <mat-radio-group formControlName="roleId">
+                <mat-radio-button *ngFor="let role of roleValues" [value]="role">
+                    {{ roles[role] }}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>      
+      <br>
+      <div class="flex items-center justify-center">
+        <button mat-flat-button color="primary" (click)="onFormSubmit()" type="submit"> REGISTER </button>
+      </div>
+      <br>
+      <p class="text-center">already have an account? <a class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline" routerLink="/register">login here</a></p>
+    </form>
+  </div>

@@ -1,0 +1,35 @@
+<div class="container mx-auto mt-10 px-4">
+    <h2 class="font-thin text-3xl">Popular Hotels</h2>
+    <div class="mt-5 mb-5 flex flex-col sm:flex-row justify-between -mx-2 flex-wrap">
+        
+        <!-- card -->
+        <div *ngFor="let hotel of hotels" (click)="showHotelInfo(hotel.id)" class="mt-7 cursor-pointer rounded px-2 w-full pt-4 sm:w-1/2 md:w-1/2 lg:w-1/4 lg:pt-0">
+            <div class="relative bg-red-500 pb-48 rounded-t">
+                <img [src]="hotel.picture"
+                    alt="Hawaii, USA"
+                    class="absolute top-0 h-full w-full object-cover rounded-t"
+                    loading="lazy"
+                >
+            </div>
+            <div class="bg-white px-3 py-3 rounded-b shadow-lg">
+                <h3 class="text-xl">{{ hotel.name }}</h3>
+                <div class="flex justify-between text-gray-500">
+                    <div>
+                        <p class="text-sm">City: {{ hotel.city }}</p>
+                        <p class="text-sm">{{ hotel.rating }} * Hotel</p>
+                    </div>
+                    <div class="flex items-end text-gray-500 text-right text-xs">
+                        <p>From <span class="font-thin text-3xl text-orange-500">{{ hotel.minimumPrice | currency }}</span></p>
+                    </div>	
+                </div>
+                
+            </div>
+        </div>
+        <!--/ card -->
+        
+    </div>
+    
+    <button class="mt-10 block mx-auto rounded text-white transition duration-500 ease-in-out bg-teal-500 hover:bg-red-500 transform hover:-translate-y-1 hover:scale-110 px-4 py-2">
+      Other Popular Hotels
+    </button>
+</div>
